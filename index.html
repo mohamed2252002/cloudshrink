@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudShrink | Enterprise Storage Optimization</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="CloudShrink Logo" class="logo-icon"> 
+            CloudShrink
+        </div>
+        <a href="#waitlist" class="btn-outline">Request Access</a>
+    </nav>
+
+    <header class="hero">
+        <h1>Reclaim 30% of Windows Server Storage with <span class="highlight">Zero Data Loss</span></h1>
+        <p>An automated storage optimization engine built for Enterprise IT. Deduplicate massive file servers natively using NTFS Hard-links.</p>
+        <a href="#waitlist" class="btn-primary">Join the Early Access</a>
+    </header>
+
+    <section class="video-section">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/qv0XJFzHxdY" title="CloudShrink Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>Zero Data Loss</h3>
+            <p>Uses SHA-256 hashing to verify exact matches. Replaces duplicates with native NTFS Hard-links. Files remain fully accessible.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fa-solid fa-terminal"></i>
+            <h3>Simulation Mode</h3>
+            <p>Perform a dry-run scan to calculate exact storage savings and generate a preview before modifying a single byte.</p>
+        </div>
+        <div class="feature-card">
+            <i class="fa-solid fa-file-pdf"></i>
+            <h3>Automated Auditing</h3>
+            <p>Automatically generates and emails an executive PDF report featuring a complete audit trail of all processed directories.</p>
+        </div>
+    </section>
+
+    <section id="waitlist" class="waitlist-section">
+        <h2>Ready to optimize your infrastructure?</h2>
+        <p>CloudShrink is currently available for select Enterprise teams. Join the waitlist to request a trial or demo.</p>
+        
+        <form id="waitlistForm" action="https://formspree.io/f/xojkjook" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Work Email" required>
+            <input type="text" name="company" placeholder="Company Name" required>
+            <input type="text" name="job_title" placeholder="Job Title (e.g. IT Manager)" required>
+            <button type="submit" class="btn-primary form-btn">Request Enterprise Demo</button>
+            
+            <p id="successMessage" style="display: none; color: #10b981; font-weight: bold; margin-top: 15px;">✅ Request sent successfully! We'll contact you soon.</p>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 CloudShrink. Engineered for Infrastructure Automation.</p>
+    </footer>
+
+
+    <script>
+        var form = document.getElementById("waitlistForm");
+        var successMessage = document.getElementById("successMessage");
+
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault(); // السطر ده بيمنع التحويل لصفحة Formspree
+
+            var data = new FormData(event.target);
+            
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    successMessage.style.display = "block"; // يظهر رسالة النجاح الشيك
+                    form.reset(); // السطر ده اللي بيمسح الداتا من المربعات بعد الإرسال
+                    
+                    // اختياري: إخفاء رسالة النجاح بعد 5 ثواني
+                    setTimeout(function() {
+                        successMessage.style.display = "none";
+                    }, 5000);
+                } else {
+                    alert("Oops! There was a problem submitting your form");
+                }
+            }).catch(error => {
+                alert("Oops! There was a problem submitting your form");
+            });
+        });
+    </script>
+ 
+</body>
+</html>

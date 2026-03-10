@@ -1,0 +1,259 @@
+/* الإعدادات الأساسية */
+:root {
+    --bg-color: #0b1120;
+    --card-bg: #1e293b;
+    --primary-color: #3b82f6; /* Tech Blue */
+    --primary-hover: #2563eb;
+    --accent-color: #10b981; /* Success Green */
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* شريط التنقل (Navbar) */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(11, 17, 32, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #1e293b;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    display: flex; /* السطر ده بيخلي الصورة والكلمة جنب بعض مظبوطين */
+    align-items: center; /* بيعمل محاذاة في النص بالظبط */
+    gap: 10px; /* بيعمل مسافة 10 بيكسل شيك بين الصورة والكلمة */
+}
+
+/* الكلاس الجديد بتاع صورة اللوجو */
+.logo-icon {
+    height: 50px; /* ده نفس حجم السحابة القديمة تقريباً */
+    width: auto; /* عشان يحافظ على أبعاد اللوجو بتاعك وميتمطش */
+    border-radius: 4px; /* لو حابب حواف اللوجو تكون ناعمة شوية */
+}
+
+/* الأزرار (Buttons) */
+.btn-primary, .btn-outline {
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--text-muted);
+}
+
+.btn-outline:hover {
+    border-color: var(--text-main);
+    background-color: rgba(255,255,255,0.05);
+}
+
+/* القسم الرئيسي (Hero) */
+.hero {
+    text-align: center;
+    padding: 100px 20px 60px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    /* لون بديل لو المتصفح قديم جداً */
+    color: var(--accent-color); 
+    
+    /* التدرج اللوني القياسي */
+    background: linear-gradient(45deg, var(--accent-color), #34d399);
+    
+    /* تطبيق التدرج على الكلام نفسه */
+    -webkit-background-clip: text;
+    background-clip: text; /* السطر ده اللي هيسكت الإيرور */
+    
+    /* إخفاء اللون الأساسي عشان التدرج يبان */
+    -webkit-text-fill-color: transparent;
+    color: transparent; 
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* قسم الفيديو (Video Embed) */
+.video-section {
+    padding: 0 20px;
+    max-width: 1000px;
+    margin: 0 auto 80px;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* نسبة 16:9 */
+    height: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border: 1px solid #1e293b;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* قسم المميزات (Features) */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px 50px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background-color: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.feature-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+}
+
+/* قسم الفورم (Waitlist) */
+.waitlist-section {
+    background-color: #0f172a;
+    text-align: center;
+    padding: 80px 20px;
+    border-top: 1px solid #1e293b;
+}
+
+.waitlist-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.waitlist-section p {
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input {
+    width: 100%;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background-color: #1e293b;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.contact-form input:focus {
+    border-color: var(--primary-color);
+}
+
+.form-btn {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 16px;
+    margin-top: 10px;
+}
+
+/* الفوتر */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    background-color: #0b1120;
+}
+
+/* الموبايل (Responsive) */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    nav { padding: 15px 20px; }
+    .features { padding: 40px 20px; }
+}
